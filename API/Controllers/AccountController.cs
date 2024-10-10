@@ -12,7 +12,10 @@ namespace API.Controllers;
 
 public class AccountController(DataContext context, ITokenService tokenService) 
                                 : BaseApiController
+                                
 {
+    
+
     [HttpPost("register")] //account/register
     public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
     {
