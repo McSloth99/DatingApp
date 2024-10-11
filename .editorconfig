@@ -41,3 +41,21 @@ dotnet_diagnostic.CS9113.severity = none
 
 # IDE0005: Using directive is unnecessary.
 dotnet_diagnostic.IDE0005.severity = none
+
+# CS8619: Nullability of reference types in value doesn't match target type.
+dotnet_diagnostic.CS8619.severity = none
+
+# CS8604: Possible null reference argument.
+dotnet_diagnostic.CS8604.severity = none
+
+# CS8602: Dereference of a possibly null reference.
+dotnet_diagnostic.CS8602.severity = none
+
+# IDE0059: Unnecessary assignment of a value
+dotnet_diagnostic.IDE0059.severity = none
+
+# CS0168: Variable is declared but never used
+dotnet_diagnostic.CS0168.severity = none
+
+# IDE0001: Simplify Names
+dotnet_diagnostic.IDE0001.severity = none
