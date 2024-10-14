@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using API.Extensions;
 
 namespace API.Entities;
-[Table ("Photos")]
+
 public class AppUser
 {
     public int Id { get; set; }
@@ -19,10 +19,10 @@ public class AppUser
     public string? LookingFor { get; set; }
     public required string City { get; set; }
     public required string Country { get; set; }
-    public List<Photo> Photo { get; set; } = [];
+    public List<Photo> Photos { get; set; } = [];
 
-    public int GetAge()
-    {
-        return DateOfBirth.CalculateAge();
-    }
+    // public int GetAge()
+    // {
+    //     return DateOfBirth.CalculateAge();
+    // }
 }

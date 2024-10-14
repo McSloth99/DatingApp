@@ -59,3 +59,15 @@ dotnet_diagnostic.CS0168.severity = none
 
 # IDE0001: Simplify Names
 dotnet_diagnostic.IDE0001.severity = none
+
+# IDE0320: Make anonymous function static
+dotnet_diagnostic.IDE0320.severity = none
+
+# CS0472: The result of the expression is always the same since a value of this type is never equal to 'null'
+dotnet_diagnostic.CS0472.severity = none
+
+# CS0162: Unreachable code detected
+dotnet_diagnostic.CS0162.severity = none
+
+# CS1998: Async method lacks 'await' operators and will run synchronously
+dotnet_diagnostic.CS1998.severity = none

@@ -15,7 +15,7 @@ namespace API.Data.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.8");
+            modelBuilder.HasAnnotation("ProductVersion", "8.0.10");
 
             modelBuilder.Entity("API.Entities.AppUser", b =>
                 {
@@ -71,7 +71,7 @@ namespace API.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Photos");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("API.Entities.Photo", b =>
@@ -89,7 +89,7 @@ namespace API.Data.Migrations
                     b.Property<string>("PublicId")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("URL")
+                    b.Property<string>("Url")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -97,13 +97,13 @@ namespace API.Data.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("Photo");
+                    b.ToTable("Photos");
                 });
 
             modelBuilder.Entity("API.Entities.Photo", b =>
                 {
                     b.HasOne("API.Entities.AppUser", "AppUser")
-                        .WithMany("Photo")
+                        .WithMany("Photos")
                         .HasForeignKey("AppUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -113,7 +113,7 @@ namespace API.Data.Migrations
 
             modelBuilder.Entity("API.Entities.AppUser", b =>
                 {
-                    b.Navigation("Photo");
+                    b.Navigation("Photos");
                 });
 #pragma warning restore 612, 618
         }
