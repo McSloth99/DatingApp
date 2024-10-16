@@ -1,6 +1,7 @@
 using System;
 using API.DTOs;
 using API.Entities;
+using AutoMapper;
 
 namespace API.Interfaces;
 
@@ -13,5 +14,6 @@ public interface IUserRepository
     Task<AppUser?> GetUserByUsernameAsync(string username);
     Task<IEnumerable<MemberDto>> GetMembersAsync();
     Task<MemberDto?> GetMemberAsync (string username);
+
 }
 
