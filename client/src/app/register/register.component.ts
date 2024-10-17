@@ -51,9 +51,10 @@ matchValues(matchTo: string): ValidatorFn {
 }
 
 register() {
-  const dob = this.getDateOnly(this.registerForm.get('dateOfBirth')?.value)
-  this.registerForm.patchValue({dateOfBirth: dob})
-  this.accountService.register(this.registerForm.value).subscribe({
+  const dob = this.getDateOnly(this.registerForm.get('dateOfBirth')?.value);
+ var req = this.registerForm.value;
+  req.dateOfBirth = dob;
+  this.accountService.register(req).subscribe({
     next: _ => this.router.navigateByUrl('/members'),
     error: error => this.validationErrors = error
   })
@@ -64,8 +65,8 @@ register() {
   }
 
   private getDateOnly(dob: string | undefined) {
-    if (!dob) return
-    return new Date(dob).toISOString().slice(0,10);
+    if (!dob) return;
+    return new Date(dob).toISOString().slice(0, 10);
   }
 
 }

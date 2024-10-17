@@ -32,6 +32,16 @@ fileOverBase (e: any) {
   this.hasBaseDropZoneOver = e; 
 }
 
+deletePhoto(photo: Photo){
+  this.memberService.deletePhoto(photo).subscribe({
+    next: _ => {
+      const updateMember = {...this.member()};
+      updateMember.photos = updateMember.photos.filter(x => x.id !== photo.id);
+      this.memberChange.emit(updateMember);
+    }
+  })
+}
+
 setMainPhoto(photo: Photo) {
   this.memberService.setMainPhoto(photo).subscribe({
     next: _ => {
@@ -53,8 +63,8 @@ setMainPhoto(photo: Photo) {
 
 initializeUploader() {
   this.uploader = new FileUploader({
-    url: this.baseUrl + 'user/add-photo',
-    authToken: 'Bearer' + this.accountService.currentUser()?.token,
+    url: this.baseUrl + 'users/add-photo',
+    authToken: 'Bearer ' + this.accountService.currentUser()?.token,
     isHTML5:  true,
     allowedFileType: ['image'],
     removeAfterUpload: true,
@@ -66,12 +76,24 @@ initializeUploader() {
     file.withCredentials = false
   }
 
-  this.uploader.onSuccessItem = (item, response, status, header) => {
+  this.uploader.onSuccessItem = (item, response, status, headers) => {
     const photo = JSON.parse(response);
     const updatedMember = {...this.member()}
     updatedMember.photos.push(photo);
     this.memberChange.emit(updatedMember);
+    if (photo.isMain) {
+      const user = this.accountService.currentUser();
+      if (user) {
+        user.photoUrl = photo.url;
+        this.accountService.setCurrentUser(user)
+      }
+      updatedMember.photoUrl = photo.url;
+      updatedMember.photos.forEach(p => {
+        if (p.isMain) p.isMain = false;
+        if (p.id === photo.id) p.isMain = true;
+      });
+      this.memberChange.emit(updatedMember)
+    }
   }
 }
-
 }
