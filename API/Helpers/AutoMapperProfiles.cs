@@ -17,6 +17,8 @@ public class AutoMapperProfiles : Profile
         CreateMap<MemberUpdateDto, AppUser>();
         CreateMap<RegisterDto, AppUser>().ForMember(x => x.DateOfBirth , opt => 
         opt.MapFrom(x => DateOnly.Parse(x.DateOfBirth)));
-       
+        CreateMap<Message, MessageDto>()
+            .ForMember(d => d.SenderPhotoUrl, o => o.MapFrom(s => s.Sender.Photos.FirstOrDefault(x =>x.IsMain)!.Url))
+            .ForMember(d => d.RecipientPhotoUrl, o => o.MapFrom(s => s.Recipient.Photos.FirstOrDefault(x =>x.IsMain)!.Url));
     }
 }

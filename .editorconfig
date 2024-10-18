@@ -71,3 +71,9 @@ dotnet_diagnostic.CS0162.severity = none
 
 # CS1998: Async method lacks 'await' operators and will run synchronously
 dotnet_diagnostic.CS1998.severity = none
+
+# CS8613: Nullability of reference types in return type doesn't match implicitly implemented member.
+dotnet_diagnostic.CS8613.severity = none
+
+# IDE0048: Add parentheses for clarity
+dotnet_diagnostic.IDE0048.severity = none

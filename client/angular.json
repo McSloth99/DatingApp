@@ -20,11 +20,9 @@
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+            "assets": [                
+                "src/favicon.ico",
+                "src/assets"             
             ],
             "styles": [
               "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
