@@ -7,6 +7,7 @@ using API.Helpers;
 using API.Interfaces;
 using AutoMapper;
 using Azure.Identity;
+using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;

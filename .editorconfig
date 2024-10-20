@@ -77,3 +77,6 @@ dotnet_diagnostic.CS8613.severity = none
 
 # IDE0048: Add parentheses for clarity
 dotnet_diagnostic.IDE0048.severity = none
+
+# IDE0320: Make anonymous function static
+csharp_prefer_static_anonymous_function = false
